@@ -1,9 +1,11 @@
 package br.com.messagemetrics.repository.file;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
 import br.com.messagemetrics.exceptions.FileException;
 import br.com.messagemetrics.model.Metric;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,6 +14,7 @@ import java.io.RandomAccessFile;
 import java.time.LocalTime;
 
 @Component
+@PropertySource("application-metrics.properties")
 public class FileUtils {
 
     private final MonitorFile monitorFile;

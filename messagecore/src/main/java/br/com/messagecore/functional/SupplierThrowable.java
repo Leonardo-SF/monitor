@@ -1,4 +1,4 @@
-package functional;
+package br.com.messagecore.functional;
 
 @FunctionalInterface
 public interface SupplierThrowable<V, E extends Exception> {

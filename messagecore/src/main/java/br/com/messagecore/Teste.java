@@ -1,2 +1,4 @@
-package br.com.messagecore;public class Teste {
+package br.com.messagecore;
+
+public class Teste {
 }

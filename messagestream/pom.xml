@@ -2,15 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.com.message-stream</groupId>
-    <artifactId>message-stream</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>message-stream</name>
-    <packaging>jar</packaging>
-    <description>Monitora filas de mensagerias</description>
-
     <parent>
         <artifactId>monitor</artifactId>
         <groupId>br.com.monitor</groupId>
@@ -18,12 +9,39 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.messagestream</groupId>
+    <artifactId>messagestream</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>messagestream</name>
+    <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
-            <groupId>br.com.message-core</groupId>
-            <artifactId>message-core</artifactId>
+            <groupId>br.com.messagecore</groupId>
+            <artifactId>messagecore</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--	KAFKA	-->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.13</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.4</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

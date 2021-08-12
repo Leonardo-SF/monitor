@@ -1,7 +1,7 @@
 package br.com.messagestream.kafka;
 
-import functional.SafeRunner;
-import functional.SupplierThrowable;
+import br.com.messagecore.functional.SafeRunner;
+import br.com.messagecore.functional.SupplierThrowable;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.LongDeserializer;

@@ -1,8 +1,9 @@
 package br.com.messagestream.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import br.com.messagecore.functional.SafeRunner;
+import br.com.messagecore.model.*;
 import br.com.messagestream.converter.ProtocolMessageTranslator;
-import functional.SafeRunner;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,11 @@ public class KafkaExecutor implements MessageService {
 
     private final ObjectMapper objectMapper;
     private final ProtocolMessageTranslator protocolMessageTranslator;
+
+//    public KafkaExecutor() {
+//        this.objectMapper = null;
+//        this.protocolMessageTranslator = null;
+//    }
 
     public KafkaExecutor(ObjectMapper objectMapper, ProtocolMessageTranslator protocolMessageTranslator) {
         this.objectMapper = objectMapper;
