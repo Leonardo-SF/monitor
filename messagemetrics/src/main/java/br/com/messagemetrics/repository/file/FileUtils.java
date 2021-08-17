@@ -1,9 +1,5 @@
 package br.com.messagemetrics.repository.file;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-
 import br.com.messagemetrics.exceptions.FileException;
 import br.com.messagemetrics.model.Metric;
 
@@ -13,14 +9,14 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.time.LocalTime;
 
-@Component
-@PropertySource("application-metrics.properties")
+//@Component
+//@PropertySource("application-metrics.properties")
 public class FileUtils {
 
     private final MonitorFile monitorFile;
     private final FolderFile folder;
 
-    public FileUtils(@Value("${monitor.files.path}") String fileDirectory) throws FileException.FolderCreationException {
+    public FileUtils(String fileDirectory) throws FileException.FolderCreationException {
         this.folder = new FolderFile();
         folder.setFile(getTempDirectory(fileDirectory));
 

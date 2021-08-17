@@ -1,12 +1,10 @@
 module messagestream {
-    requires messagecore;
-
     requires kafka.clients;
-    requires spring.context;
     requires com.fasterxml.jackson.databind;
+    requires org.slf4j;
 
-    opens br.com.messagestream.converter;
-
-    exports br.com.messagestream.kafka;
+    exports br.com.messagestream.application;
+    exports br.com.messagestream.exception;
+    exports br.com.messagestream.model;
     exports br.com.messagestream.search;
 }

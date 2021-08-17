@@ -4,9 +4,8 @@ import br.com.messagemetrics.exceptions.FileException;
 import br.com.messagemetrics.exceptions.MetricException;
 import br.com.messagemetrics.model.Metric;
 import br.com.messagemetrics.model.MetricAverage;
-import br.com.messagecore.model.Topic;
-import org.springframework.stereotype.Component;
 import br.com.messagemetrics.repository.MetricRepository;
+import br.com.messagestream.model.Topic;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -17,13 +16,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class FileMetricRepository implements MetricRepository {
 
     private final FileUtils fileUtils;
 
-    public FileMetricRepository(FileUtils fileUtils) {
-        this.fileUtils = fileUtils;
+    public FileMetricRepository(String filePath) throws FileException.FolderCreationException {
+        this.fileUtils = new FileUtils(filePath);
     }
 
     @Override

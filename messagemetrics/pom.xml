@@ -20,21 +20,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>br.com.messagecore</groupId>
-            <artifactId>messagecore</artifactId>
+            <groupId>br.com.messagestream</groupId>
+            <artifactId>messagestream</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-        </dependency>
-
-        <!--	KAFKA	-->
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka_2.13</artifactId>
-            <version>2.7.0</version>
         </dependency>
 
     </dependencies>

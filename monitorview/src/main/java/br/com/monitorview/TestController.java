@@ -1,19 +1,25 @@
 package br.com.monitorview;
 
-import br.com.messagecore.model.MessageService;
-import br.com.messagemetrics.MetricService;
-import br.com.messagemetrics.exceptions.MetricException;
-import br.com.messagemetrics.model.MetricAverage;
+import br.com.messagestream.exception.MessageException;
+import br.com.messagestream.model.MessageService;
+import br.com.messagestream.model.ProtocolMessageWrapper;
+import br.com.messagemetrics.model.MetricService;
+import br.com.messagestream.model.KafkaFilter;
+import br.com.monitorview.model.ResponseMessage;
+import br.com.rotacore.usecase.RotaService;
+import br.com.rotadomain.Rota;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Collections;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class TestController {
 
 
@@ -23,17 +29,25 @@ public class TestController {
     @Autowired
     private MetricService metricService;
 
+    @Autowired
+    private RotaService rotaService;
+
+
+    @GetMapping("/home")
+    public String home() throws MessageException {
+        messageService.getAllTopics();
+        Rota rota = rotaService.findRotaByTopic("1595876977848");
+        System.out.println(rota.toString());
+        return "home";
+    }
+
+
+    @ResponseBody
     @GetMapping
-    public String teste() {
-        try {
-            var averages = metricService.findAverages(Collections.singletonList("1604058293499"));
-            System.out.println(averages.get(0).getInputMessageAverage());
-        } catch (MetricException e) {
-            e.printStackTrace();
-        }
-        var topics = messageService.getTopic("1621601308308");
-        System.out.println(topics.getName());
-        return "html/teste.html";
+    public ResponseEntity<ResponseMessage<List<ProtocolMessageWrapper>>> teste(@RequestParam String topic, @RequestParam Integer partition, @RequestParam(required = false) Long lastIndex, @RequestParam(required = false) Integer size) throws MessageException {
+        var kafkaFilter = new KafkaFilter(topic, partition);
+        return ResponseMessage.ok(messageService.getMessages(kafkaFilter, lastIndex, size));
+//        return "html/teste.html";
     }
 
 }

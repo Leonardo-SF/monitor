@@ -1,8 +1,8 @@
 package br.com.monitorview.metrics;
 
-import br.com.messagemetrics.MetricService;
 import br.com.messagemetrics.exceptions.MetricException;
 import br.com.messagemetrics.model.MetricAverage;
+import br.com.messagemetrics.model.MetricService;
 import br.com.monitorview.model.ResponseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

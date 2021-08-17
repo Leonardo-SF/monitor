@@ -1,38 +1,12 @@
 package br.com.messagestream.search;
 
-import br.com.messagecore.model.MessageFetcher;
-import br.com.messagecore.model.SearchEngine;
+import br.com.messagestream.model.MessageFetcher;
+import br.com.messagestream.model.SearchEngine;
 
 import java.util.Optional;
 import java.util.function.UnaryOperator;
 
 public class DefaultSearchEngine {
-
-//    public Optional<String> binarySearch(long start, long end, Deliverer<V> deliverer, Function<V, Long> br.com.messagestream.converter, Long value) {
-//        long middle = (start + end) / 2;
-//
-//        var message = deliverer.get(middle);
-//
-//        if (message == null) {
-//            return Optional.empty();
-//        }
-//
-//        var retorno = br.com.messagestream.converter.apply(message);
-//
-//        if (retorno.equals(value)) {
-//            return Optional.of((String) message);
-//        } else if (retorno < value) {
-//            start = middle + 1;
-//        } else {
-//            end = middle - 1;
-//        }
-//
-//        return binarySearch(start, end, deliverer, br.com.messagestream.converter, value);
-//    }
-
-//    public static final Searcher binary = (long start, long end, Deliverer<?> deliverer, Long value) -> {
-//        return Search.binary.apply(start, end, deliverer, null, value);
-//    };
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static final SearchEngine binary = (long start, long end, MessageFetcher<? extends Comparable<?>> messageFetcher, UnaryOperator<Comparable<?>> converter, Comparable<?> value, long previous) -> {

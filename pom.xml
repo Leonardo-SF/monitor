@@ -19,47 +19,27 @@
 
 	<modules>
 		<module>messagemetrics</module>
-		<module>messagecore</module>
 		<module>messagestream</module>
 		<module>monitorview</module>
+		<module>rota/rota-domain</module>
+		<module>rota/rota-usecase</module>
+		<module>rota/rota-jpa-repository</module>
+		<module>configuration/springconfig</module>
 	</modules>
 
 	<dependencies>
-
-<!--		<dependency>-->
-<!--			<groupId>org.slf4j</groupId>-->
-<!--			<artifactId>slf4j-log4j12</artifactId>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web</artifactId>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
-
-		<!--	TESTE	-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 
 	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-dependencies</artifactId>-->
+<!--				<version>${spring.version}</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
 
 			<dependency>
 				<groupId>org.slf4j</groupId>

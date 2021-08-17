@@ -3,7 +3,7 @@ package br.com.messagemetrics.repository;
 import br.com.messagemetrics.exceptions.MetricException;
 import br.com.messagemetrics.model.Metric;
 import br.com.messagemetrics.model.MetricAverage;
-import br.com.messagecore.model.Topic;
+import br.com.messagestream.model.Topic;
 
 import java.util.List;
 

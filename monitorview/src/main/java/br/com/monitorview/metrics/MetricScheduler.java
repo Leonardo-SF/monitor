@@ -1,6 +1,7 @@
 package br.com.monitorview.metrics;//import br.com.monitor.br.com.monitorview.metrics.exception.MetricException;
-import br.com.messagemetrics.MetricService;
+
 import br.com.messagemetrics.exceptions.MetricException;
+import br.com.messagemetrics.model.MetricService;
 import br.com.monitorview.websocket.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
