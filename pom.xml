@@ -2,60 +2,68 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>br.com</groupId>
+	<groupId>br.com.monitor</groupId>
 	<artifactId>monitor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>monitor</name>
+	<packaging>pom</packaging>
 	<description>Monitora filas de mensagerias</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring.version>2.4.5</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<compiler.plugin.version>3.8.1</compiler.plugin.version>
+		<source.version>11</source.version>
+		<target.version>11</target.version>
 	</properties>
+
+	<modules>
+		<module>messagemetrics</module>
+		<module>messagestream</module>
+		<module>monitorview</module>
+		<module>rota/rota-domain</module>
+		<module>rota/rota-usecase</module>
+		<module>rota/rota-jpa-repository</module>
+		<module>configuration/springconfig</module>
+	</modules>
+
 	<dependencies>
 
-		<!--	SPRING	-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--		</dependency>-->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<!--	KAFKA	-->
-		<dependency>
-			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka_2.13</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-
-		<!--	TESTE	-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-dependencies</artifactId>-->
+<!--				<version>${spring.version}</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.30</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.plugin.version}</version>
+				<configuration>
+					<source>${source.version}</source>
+					<target>${target.version}</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
